@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../css/style.css" />
+
+</head>
+
+<body>
+  <div class="bg-darkblue text-white">
+
+    <!-- inicio da navbar ---------------------- -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-darkblue px-3">
+      <div class="container-fluid">
+
+        <!-- Esquerda: voltar + logo -->
+        <div class="d-flex align-items-center gap-3">
+          <a href="index.html" class="text-white fs-4"><i class="bi bi-arrow-left"></i></a>
+          <a class="navbar-brand text-white fw-bold" href="index.html">
+            <img src="../IMG/LogoAtivaS.png" alt="Logo" style="height: 35px;">
+          </a>
+        </div>
+
+        <!-- Meio: busca -->
+        <form class="d-flex mx-auto w-50" role="search">
+          <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
+        </form>
+
+        <!-- Direita: ícones -->
+        <div class="d-flex align-items-center gap-3">
+          <a href="carrinho.html" class="text-white fs-5"><img src="../IMG/carrinho-de-compras.png"></i></a>
+          <a href="chat.html" class="text-white fs-5"><img src="../IMG/bubble-chat.png"></img></a>
+          <a href="perfil.html" class="text-white fs-5"><img src="../IMG/PerfilAtiva.png"></img></a>
+        </div>
+
+      </div>
+    </nav>
+    <!-- fim da navbar ------------------------ -->
+
+
+    <!-- inicio do menu categorias ---------------------- -->
+    <div class="bg-darkblue-sub py-2 text-center">
+      <a href="#" class="mx-3 text-white fw-bold">CREATINAS</a>
+      <a href="#" class="mx-3 text-white fw-bold">WHEY PROTEIN</a>
+      <a href="#" class="mx-3 text-white fw-bold">PRÉ-TREINO</a>
+      <a href="#" class="mx-3 text-white fw-bold">HIPER CALÓRICOS</a>
+    </div>
+    <!-- fim do menu categorias ------------------------ -->
+
+    <!-- inicio do detalhe do produto ---------------------- -->
+    <div class="container my-5">
+      <div class="row g-5">
+
+        <!-- imagens -->
+        <div class="col-md-6 text-center">
+          <div class="d-flex flex-column align-items-center">
+            <img src="../IMG/ProdutoPreTreinoFren.png" alt="Produto Principal" class="img-fluid produto-principal mb-3">
+            <div class="d-flex gap-3">
+              <img src="../IMG/TabelaFrenzy.png" class="img-thumbnail thumb" alt="Thumb 1">
+              <img src="../IMG/ProdutoPreTreinoFren.png" class="img-thumbnail thumb" alt="Thumb 2">
+            </div>
+          </div>
+        </div>
+
+        <!-- informações -->
+        <div class="col-md-6">
+          <h3 class="fw-bold">Pré treino - Frenzy 300g</h3>
+
+          <!-- inicio das estrelas de avaliação ---------------------- -->
+          <div class="estrelas-wrap" aria-label="Avaliação 4.5 de 5">
+            <span class="estrela estrela--filled"></span>
+            <span class="estrela estrela--filled"></span>
+            <span class="estrela estrela--filled"></span>
+            <span class="estrela estrela--filled"></span>
+            <span class="estrela estrela--half"></span>
+            <small class="ms-2">(4.5)</small>
+          </div>
+          <!-- fim das estrelas de avaliação ------------------------ -->
+
+
+          <p class="h4 fw-bold">R$ 139,99
+            <span class="text-white-50 fs-6">À vista no pix</span>
+          </p>
+          <p class="text-white-50">ou Até 2x de R$69,99 (sem juros)</p>
+          <p><strong>Sabor:</strong> <span class="text-success">Limão</span> <span class="text-danger"></span></p>
+
+          <!-- quantidade -->
+          <div class="d-flex align-items-center mb-3">
+            <label for="quantidade" class="me-3 fw-bold">Quantidade</label>
+            <button class="btn btn-outline-light btn-sm" onclick="mudarQuantidade(-1)">-</button>
+            <input type="text" id="quantidade" value="1" class="form-control text-center mx-2" style="width: 60px;">
+            <button class="btn btn-outline-light btn-sm" onclick="mudarQuantidade(1)">+</button>
+          </div>
+
+          <!-- botão carrinho -->
+          <button class="btn btn-warning btn-lg fw-bold w-100">ADICIONAR AO CARRINHO</button>
+        </div>
+      </div>
+    </div>
+    <!-- fim do detalhe do produto ------------------------ -->
+
+    <!-- inicio sobre o produto ---------------------- -->
+    <div class="bg-light text-dark p-4">
+      <div class="container">
+        <h5 class="fw-bold">SOBRE O PRODUTO</h5>
+        <p>
+          O pré-treino FRENZY é seu mais novo aliado para realizar treinos cada vez mais intensos!
+          Sua formulação é concentrada e é fonte dos aminoácidos beta-alanina, taurina, cafeína, arginina e tirosina,
+          que atuam em sinergia para auxiliar ainda mais seu desempenho.
+          Prepare-se para treinar com muito mais intensidade, concentração e resistência!
+          FRENZY tem saborização agradável e suave, tornando ainda mais fácil a inclusão do pré-treino em sua rotina.
+        </p>
+        <h6 class="fw-bold text-warning">RECOMENDAÇÃO DE USO</h6>
+        <p>
+          Consumir uma porção ao dia. <br>
+          Indicado para maiores de 19 anos.
+        </p>
+      </div>
+    </div>
+    <!-- fim sobre o produto ------------------------ -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- inicio dos scripts ---------------------- -->
+    <script>
+      function mudarQuantidade(valor) {
+        const campo = document.getElementById("quantidade");
+        let quantidade = parseInt(campo.value) || 1;
+        quantidade += valor;
+        if (quantidade < 1) quantidade = 1;
+        campo.value = quantidade;
+      }
+    </script>
+    <!-- fim dos scripts ------------------------ -->
+</body>
+
+</html>

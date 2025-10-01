@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../css/style.css"/>
+
+  </head>
+  <body>
+ <!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tela de Login</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <!-- inicio da tela de login ---------------------- -->
+    <div class="container-fluid vh-100">
+      <div class="row h-100">
+
+        <!-- Coluna Esquerda (formulário) -->
+        <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-gold p-4">
+          <div class="card p-4 shadow-lg w-100" style="max-width: 400px; border-radius: 15px;">
+            <form>
+              <div class="mb-3">
+                <label for="email" class="form-label fw-bold">E-mail:</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
+              </div>
+
+              <div class="mb-4 position-relative">
+                <label for="senha" class="form-label fw-bold">Senha:</label>
+                <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
+                <button type="submit" class="btn btn-sm btn-outline-secondary toggle-senha" onclick="toggleSenha('senha')">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+
+              <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-login">Entrar</button>
+              </div>
+
+              <p class="text-center small">
+                Não possui um cadastro? <a href="cadastro.html" class="fw-bold text-dark">Cadastre-se</a>
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <!-- Coluna Direita (logo) -->
+        <div class="col-lg-6 d-flex justify-content-center align-items-center bg-darkblue">
+          <img src="../IMG/LogoAtivaS.png" alt="Logo" class="logo-login">
+        </div>
+      </div>
+    </div>
+    <!-- fim da tela de login ------------------------ -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- inicio dos scripts ---------------------- -->
+    <script>
+      // Função para exibir/ocultar senha
+      function toggleSenha(id) {
+        const campo = document.getElementById(id);
+        campo.type = campo.type === "password" ? "text" : "password";
+      }
+    </script>
+    <!-- fim dos scripts ------------------------ -->
+
+
+
+
+
+
+  </body>
+</html>

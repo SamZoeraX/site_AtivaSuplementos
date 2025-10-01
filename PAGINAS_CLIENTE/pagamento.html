@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  
+    <link rel="stylesheet" href="../css/style.css"/>
+    
+</head>
+<body class="bg-darkblue text-white">
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-darkblue sticky-top px-3">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    
+    <!-- Botão de voltar -->
+    <a href="carrinho.html" class="text-white fs-4 me-3">
+      <img src="../IMG/de-volta (1).png"></img>
+    </a>
+
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold text-white mx-auto" href="index.html">
+      <img src="../IMG/LogoAtivaS.png" alt="Logo" style="height: 40px;">
+    </a>
+
+    <!-- Ícones -->
+    <div class="d-flex align-items-center gap-3">
+      <a href="index.html" class="text-white fs-5"><i class="bi bi-house"></i></a>
+      <a href="carrinho.html" class="text-white fs-5"><img src="../IMG/CarrinhoAtiva.png"></img></a>
+      <a href="perfil.html" class="text-white fs-5"><img src="../IMG/PerfilAtiva.png"></img></a>
+    </div>
+  </div>
+</nav>
+
+  <!-- Conteúdo principal -->
+  <div class="container my-4">
+    <div class="row g-4">
+
+      <!-- Formulário -->
+      <div class="col-lg-8">
+        <div class="p-4 bg-secondary rounded shadow">
+
+          <!-- Dados pessoais -->
+          <h5 class="fw-bold text-warning mb-3">1. DADOS PESSOAIS</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Primeiro nome">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Último nome">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control cpf-mask" placeholder="CPF">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control phone-mask" placeholder="Telefone">
+            </div>
+          </div>
+
+          <hr class="border-light my-4">
+
+          <!-- Entrega -->
+          <h5 class="fw-bold text-warning mb-3">2. ENTREGA</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="CEP">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Endereço de entrega">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Número">
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Destinatário">
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <h6 class="fw-bold">Forma de entrega</h6>
+            <div class="form-check">
+              <input class="form-check-input shipping-option" type="radio" name="frete" id="frete1" value="29.85" checked>
+              <label class="form-check-label" for="frete1">Normal - R$ 29,85</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input shipping-option" type="radio" name="frete" id="frete2" value="49.90">
+              <label class="form-check-label" for="frete2">Expresso - R$ 49,90</label>
+            </div>
+          </div>
+
+          <hr class="border-light my-4">
+
+          <!-- Pagamento -->
+          <h5 class="fw-bold text-warning mb-3">3. PAGAMENTO</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pagamento" id="pix" checked>
+            <label class="form-check-label" for="pix">Pix</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pagamento" id="debito">
+            <label class="form-check-label" for="debito">Cartão de Débito</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pagamento" id="credito">
+            <label class="form-check-label" for="credito">Cartão de Crédito</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resumo do Pedido -->
+      <div class="col-lg-4">
+        <div class="p-4 bg-warning rounded shadow text-dark">
+          <h5 class="fw-bold mb-3">RESUMO DO PEDIDO</h5>
+          <div id="order-summary">
+            <div class="d-flex align-items-center mb-3">
+              <a href="detalhe.html" class="product-link me-2">
+                <img src="../IMG/ProdutoCreaMaxAtiva.png" class="summary-img" alt="Produto">
+              </a>
+              <div>
+                <h6 class="mb-1">Creatina 300g</h6>
+                <p class="mb-0">R$ <span class="price">120,99</span></p>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <p>Subtotal: R$ <span id="subtotal">0.00</span></p>
+          <p>Entrega: R$ <span id="frete">0.00</span></p>
+          <h5>Total: R$ <span id="total">0.00</span></h5>
+          <button class="btn btn-dark w-100 fw-bold mt-3" onclick="finalizarCompra()">FINALIZAR COMPRA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="bg-darkblue text-center py-4 mt-5">
+    <p class="mb-2">Conheça nossas Redes Sociais</p>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="#" class="social-icon"><img src="../IMG/linkedinAtiva.png"></img></a>
+      <a href="#" class="social-icon"><img src="../IMG/instagramAtiva.png"></img></a>
+      <a href="#" class="social-icon"><img src="../IMG/whatsappAtiva.png"></img></a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function updateResumo() {
+      let price = parseFloat(document.querySelector(".price").innerText);
+      let frete = parseFloat(document.querySelector(".shipping-option:checked").value);
+      document.getElementById("subtotal").innerText = price.toFixed(2);
+      document.getElementById("frete").innerText = frete.toFixed(2);
+      document.getElementById("total").innerText = (price + frete).toFixed(2);
+    }
+
+    function finalizarCompra() {
+      alert("Compra finalizada com sucesso!");
+      window.location.href = "confirmacao.html";
+    }
+
+    document.querySelectorAll(".shipping-option").forEach(opt => {
+      opt.addEventListener("change", updateResumo);
+    });
+
+    window.onload = updateResumo;
+  </script>
+
+  </body>
+</html>

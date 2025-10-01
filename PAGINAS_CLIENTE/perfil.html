@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  
+    <link rel="stylesheet" href="../css/style.css"/>
+    
+</head>
+
+  <body class="bg-darkblue text-white">
+
+    <!-- inicio da navbar ---------------------- -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-darkblue sticky-top px-3">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+
+        <!-- Menu -->
+        <a href="#" class="text-white fs-4 me-3">
+          <img src="../IMG/casa.png"></img>
+        </a>
+
+        <!-- Busca -->
+        <form class="d-flex mx-auto w-50" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+        </form>
+
+        <!-- Ícones -->
+        <div class="d-flex align-items-center gap-3">
+          <a href="index.html" class="text-white fs-5"><i class="bi bi-house"></i></a>
+          <a href="chat.html" class="text-white fs-5"><img src="../IMG/ChatAtiva.png"></img></a>
+          <a href="carrinho.html" class="text-white fs-5"><img src="../IMG/carrinho-de-compras.png"></img></a>
+          <a href="perfil.html" class="text-white fs-5"><img src="../IMG/PerfilAtiva.png"></img></a>
+        </div>
+      </div>
+    </nav>
+    <!-- fim da navbar ------------------------ -->
+
+    <!-- inicio do perfil ---------------------- -->
+    <section class="container my-5">
+      <div class="row align-items-center mb-5">
+        <div class="col-md-6 d-flex align-items-center">
+          <img src="../IMG/perfil-de-usuario.png"></img>
+          <h4>Olá, Usuário!</h4>
+        </div>
+        <div class="col-md-6 text-end">
+          <img src="../IMG/LogoAtivaS.png" alt="Logo" style="height:50px;">
+        </div>
+      </div>
+
+      <h5 class="text-center fw-bold mb-4">DADOS PESSOAIS</h5>
+
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle text-white bg-secondary rounded">
+          <tbody>
+            <tr>
+              <td><strong>Nome</strong></td>
+              <td id="nome">João</td>
+              <td><strong>Sobrenome</strong></td>
+              <td id="sobrenome">Silva</td>
+            </tr>
+            <tr>
+              <td><strong>CPF</strong></td>
+              <td id="cpf">000.000.000-00</td>
+              <td><strong>Gênero</strong></td>
+              <td id="genero">Masculino</td>
+            </tr>
+            <tr>
+              <td><strong>Data de nascimento</strong></td>
+              <td id="nascimento">01/01/1990</td>
+              <td><strong>Telefone</strong></td>
+              <td id="telefone">(00) 00000-0000</td>
+            </tr>
+            <tr>
+              <td><strong>E-mail</strong></td>
+              <td id="email">usuario@email.com</td>
+              <td colspan="2">
+                <a href="#" class="text-danger fw-bold" id="editarBtn">Editar</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- fim do perfil ---------------------- -->
+
+    <!-- inicio do rodapé ---------------------- -->
+    <footer class="bg-darkblue text-center py-3 mt-5">
+      <p class="mb-0">© 2025 Sua Loja - Todos os direitos reservados</p>
+    </footer>
+    <!-- fim do rodapé ---------------------- -->
+
+    <!-- Modal de Edição -->
+<div class="modal fade" id="editarModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-white text-white">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Dados</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formEditar">
+          <div class="mb-2">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" id="editNome">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Sobrenome</label>
+            <input type="text" class="form-control" id="editSobrenome">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">CPF</label>
+            <input type="text" class="form-control" id="editCpf" placeholder="000.000.000-00">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Gênero</label>
+            <select class="form-select" id="editGenero">
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Data de nascimento</label>
+            <input type="date" class="form-control" id="editNascimento">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Telefone</label>
+            <input type="text" class="form-control" id="editTelefone" placeholder="(00) 00000-0000">
+          </div>
+          <div class="mb-2">
+            <label class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="editEmail">
+          </div>
+          <button type="submit" class="btn btn-gold w-100 mt-2">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+  // Abrir modal e preencher com dados existentes
+  document.getElementById("editarBtn").addEventListener("click", function () {
+    document.getElementById("editNome").value = document.getElementById("nome").textContent;
+    document.getElementById("editSobrenome").value = document.getElementById("sobrenome").textContent;
+    document.getElementById("editCpf").value = document.getElementById("cpf").textContent;
+    document.getElementById("editGenero").value = document.getElementById("genero").textContent;
+    document.getElementById("editNascimento").value = document.getElementById("nascimento").textContent.split("/").reverse().join("-");
+    document.getElementById("editTelefone").value = document.getElementById("telefone").textContent;
+    document.getElementById("editEmail").value = document.getElementById("email").textContent;
+
+    var modal = new bootstrap.Modal(document.getElementById("editarModal"));
+    modal.show();
+  });
+
+  // Salvar alterações
+  document.getElementById("formEditar").addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("nome").textContent = document.getElementById("editNome").value;
+    document.getElementById("sobrenome").textContent = document.getElementById("editSobrenome").value;
+    document.getElementById("cpf").textContent = document.getElementById("editCpf").value;
+    document.getElementById("genero").textContent = document.getElementById("editGenero").value;
+    document.getElementById("nascimento").textContent = document.getElementById("editNascimento").value.split("-").reverse().join("/");
+    document.getElementById("telefone").textContent = document.getElementById("editTelefone").value;
+    document.getElementById("email").textContent = document.getElementById("editEmail").value;
+
+    bootstrap.Modal.getInstance(document.getElementById("editarModal")).hide();
+  });
+</script>
+  </body>
+</html>

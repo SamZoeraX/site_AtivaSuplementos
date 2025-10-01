@@ -1,0 +1,605 @@
+/* ESTILOS DE TODAS AS PÁGINAS */
+
+/* Estilo de cabeçalho*/
+
+
+/* inicio do estilo da tela de cadastro ---------------------- */
+body {
+background-color: white; /* cor de fundo */
+}
+
+.logo-cadastro {
+  width: 60px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.toggle-senha {
+  position: absolute;
+  right: 10px;
+  top: 38px;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+/* fim do estilo da tela de cadastro ------------------------ */
+
+/* inicio do estilo da tela de login ---------------------- */
+.bg-gold {
+  background-color: #d4a55d;
+}
+
+.bg-darkblue {
+  background-color: #1a1b49;
+}
+
+.logo-login {
+  width: 120px;
+  height: auto;
+}
+
+.btn-login {
+  background-color: #1a1b49;
+  color: #616161;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.btn-login:hover {
+  background-color: #131432;
+  color: #fff;
+}
+
+.toggle-senha {
+  position: absolute;
+  right: 10px;
+  top: 38px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+/* fim do estilo da tela de login ------------------------ */
+
+/* inicio do estilo detalhe produto ---------------------- */
+.bg-darkblue {
+  background-color: #1a1b49;
+}
+
+.bg-darkblue-sub {
+  background-color: #0f1133;
+}
+
+.produto-principal {
+  max-width: 300px;
+}
+
+.thumb {
+  width: 80px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.thumb:hover {
+  transform: scale(1.1);
+}
+
+#quantidade {
+  border-radius: 5px;
+}
+
+.btn-warning {
+  background-color: #d4a55d;
+  border: none;
+  color: #000;
+}
+
+.btn-warning:hover {
+  background-color: #c2924d;
+  color: #000;
+}
+/* fim do estilo detalhe produto ------------------------ */
+
+/* inicio do estilo navbar ---------------------- */
+.bg-darkblue {
+  background-color: #1a1b49 !important;
+}
+
+.navbar {
+  padding: 0.8rem 1rem;
+}
+
+/* Barra de busca */
+.navbar .form-control {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar .form-control:focus {
+  border-color: #d4a55d;
+  box-shadow: 0 0 5px rgba(212, 165, 93, 0.6);
+}
+
+/* Ícones */
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar .d-flex a {
+  color: #fff;
+  transition: color 0.3s ease-in-out, transform 0.2s;
+}
+
+.navbar .d-flex a:hover {
+  color: #d4a55d !important;
+  transform: scale(1.15);
+}
+
+.navbar .d-flex i {
+  font-size: 1.5rem;
+}
+/* fim do estilo navbar ------------------------ */
+
+/* inicio do componente estrelas ---------------------- */
+.estrelas-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Base da estrela (formato via clip-path) */
+.estrela {
+  width: 22px;              /* ajuste o tamanho aqui */
+  height: 22px;
+  display: inline-block;
+  margin-right: 4px;
+  /* Desenha a estrela com polígonos (sem imagem) */
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  background-color: #cfcfcf; /* estrela vazia */
+}
+
+/* Estrela cheia */
+.estrela--filled {
+  background-color: #f1c40f; /* dourado */
+}
+
+/* Meia estrela */
+.estrela--half {
+  background:
+    linear-gradient(90deg, #f1c40f 50%, #cfcfcf 50%);
+}
+
+/* Acessibilidade/hover opcional */
+.estrela:focus,
+.estrela:hover {
+  outline: none;
+  filter: brightness(1.05);
+}
+/* fim do componente estrelas ------------------------ */
+
+/* fundo */
+.bg-darkblue {
+  background-color: #1a1b49 !important;
+}
+
+/* Busca */
+.navbar .form-control {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+}
+.navbar .form-control:focus {
+  border-color: #d4a55d;
+  box-shadow: 0 0 5px rgba(212, 165, 93, 0.6);
+}
+
+/* Botões */
+.btn-darkblue {
+  background-color: #1a1b49;
+  color: #fff;
+  border-radius: 20px;
+  padding: 0.4rem 1.2rem;
+  transition: all 0.3s;
+}
+.btn-darkblue:hover {
+  background-color: #d4a55d;
+  color: #1a1b49;
+}
+
+/* Card Produtos */
+.product-card {
+  border-radius: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Marcas */
+.brand-logo img {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 10px;
+}
+.brand-logo:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.3);
+}
+
+/* Redes sociais */
+.social-icon {
+  font-size: 1.8rem;
+  color: #fff;
+  transition: transform 0.2s, color 0.3s;
+}
+.social-icon:hover {
+  color: #d0ad6b;
+  transform: scale(1.2);
+}
+.marcas img{
+   width: 450px;
+   height: 210px
+}
+
+/* Fundo */
+.bg-darkblue {
+  background-color: #1a1b49 !important;
+}
+
+/* Busca */
+.navbar .form-control {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+}
+.navbar .form-control:focus {
+  border-color: #d0ad6b;
+  box-shadow: 0 0 5px rgba(212, 165, 93, 0.6);
+}
+
+/* Produtos no carrinho */
+.cart-img {
+  width: 70px;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+.product-link:hover .cart-img {
+  transform: scale(1.1);
+}
+
+/* Botão remover */
+.remove-item {
+  border-radius: 50%;
+  padding: 0.4rem 0.6rem;
+}
+
+/* Redes sociais */
+.social-icon {
+  font-size: 1.8rem;
+  color: #fff;
+  transition: transform 0.2s, color 0.3s;
+}
+.social-icon:hover {
+  color: #d0ad6b;
+  transform: scale(1.2);
+}
+
+/* Fundo */
+.bg-darkblue {
+  background-color: #1a1b49 !important;
+}
+
+/* Input */
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+.form-control:focus {
+  border-color: #d0ad6b;
+  box-shadow: 0 0 5px rgba(212, 165, 93, 0.6);
+}
+
+/* Produto resumo */
+.summary-img {
+  width: 70px;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+.product-link:hover .summary-img {
+  transform: scale(1.1);
+}
+
+/* Redes sociais */
+.social-icon {
+  font-size: 1.8rem;
+  color: #fff;
+  transition: transform 0.2s, color 0.3s;
+}
+.social-icon:hover {
+  color: #1a1b49;
+  transform: scale(1.2);
+}
+
+/* Botão de voltar */
+.navbar .bi-arrow-left {
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+.navbar .bi-arrow-left:hover {
+  transform: scale(1.2);
+  color: #d4a55d;
+}
+
+/* Cores personalizadas */
+.bg-darkblue {
+  background-color: #1a1b49 !important;
+}
+.btn-gold {
+  background-color: #d4a55d;
+  color: #1a1b49;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn-gold:hover {
+  background-color: #b8894c;
+  color: #fff;
+}
+
+/* Navbar */
+.navbar input[type="search"] {
+  border-radius: 20px;
+  padding-left: 15px;
+}
+.navbar a {
+  transition: color 0.3s, transform 0.2s;
+}
+.navbar a:hover {
+  color: #d4a55d;
+  transform: scale(1.1);
+}
+
+/* Tabela */
+.table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+.table td {
+  background-color: #2b2c6a;
+  padding: 12px;
+}
+
+/* Rodapé */
+footer {
+  border-top: 1px solid #444;
+}
+
+/* inicio do estilo do painel do lojista ---------------------- */
+
+/* cores base */
+:root {
+  --sidebar-bg: #0f1a3a;
+  --navbar-bg: #1a1b49;
+  --gold: #d4a55d;
+  --card-gray: #e9ecef;
+}
+
+/* corpo */
+body {
+  background-color: var(--sidebar-bg);
+  color: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* navbar */
+.bg-darkblue {
+  background-color: var(--navbar-bg) !important;
+}
+.navbar .logo-small {
+  height: 36px;
+}
+.search-input {
+  border-radius: 20px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.02);
+  color: #fff;
+}
+.search-input::placeholder { color: rgba(255,255,255,0.6); }
+
+/* nav icons (direita) */
+.nav-icons a { color: #fff; transition: transform .15s, color .15s; }
+.nav-icons a:hover { color: var(--gold); transform: scale(1.08); }
+
+/* sidebar (desktop) */
+.sidebar {
+  background-color: var(--sidebar-bg) !important;
+  min-height: 100vh;
+  color: #dfe6f0;
+}
+.sidebar .logo img { display:block; margin: 0 auto; }
+.sidebar .nav-link {
+  color: #cfd8e3 !important;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  transition: background .18s, transform .12s;
+}
+.sidebar .nav-link i { color: #cfd8e3; margin-right: 8px; }
+.sidebar .nav-link:hover { background-color: rgba(255,255,255,0.03) !important; transform: translateX(4px); color: #fff !important; }
+
+/* offcanvas menu */
+.sidebar-offcanvas { background: var(--sidebar-bg); min-height: 100%; }
+.offcanvas .nav-link { color: #cfd8e3; }
+.offcanvas .btn-close-white { filter: invert(1); }
+
+/* content area */
+.content { padding: 22px; }
+
+/* header welcome */
+.header-welcome {
+  background: rgba(255,255,255,0.03);
+  padding: 18px;
+  border-radius: 6px;
+}
+
+/* cards de métricas */
+.card-metric {
+  background-color: var(--card-gray);
+  color: #111;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* section title (Lista de Vendas / Entregas) */
+.section-title {
+  background-color: var(--gold);
+  color: var(--navbar-bg);
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* tabelas */
+.table {
+  background: #f5f6f8;
+  color: #111;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.table thead th {
+  background: #e9ecef;
+}
+.table tbody tr:hover {
+  background: #e8e8e8;
+  cursor: pointer;
+  transform: translateY(-1px);
+}
+
+/* footer */
+footer { color: rgba(255,255,255,0.6); }
+
+/* responsividade pequena */
+@media (max-width: 991px) {
+  .search-input { width: 100%; }
+}
+
+/* fim do estilo do painel do lojista ---------------------- */
+
+/* Navbar */
+.bg-darkblue {
+  background-color: #1a1b49 !important;
+}
+.logo-small {
+  height: 35px;
+}
+
+/* Form */
+.bg-form {
+  background-color: #e6dfd2;
+}
+
+/* Botões */
+.btn-darkblue {
+  background-color: #1a1b49;
+  color: #fff;
+}
+.btn-darkblue:hover {
+  background-color: #0f1333;
+  color: #fff;
+}
+
+/* Tabela */
+.table-darkblue {
+  background-color: #1a1b49;
+}
+
+/* Navbar */
+.bg-darkblue {
+  background-color: #1a1b49 !important;
+}
+.logo-small {
+  height: 35px;
+}
+
+/* Fundo dos cards/form */
+.bg-form {
+  background-color: #f8ebd9;
+}
+
+/* Botões */
+.btn-darkblue {
+  background-color: #1a1b49;
+  color: #fff;
+}
+.btn-darkblue:hover {
+  background-color: #0f1333;
+  color: #fff;
+}
+
+/* Tabelas */
+.table-darkblue {
+  background-color: #1a1b49;
+}
+
+body {
+  background-color: #e5e5e5;
+}
+
+.navbar {
+  background-color: #1a1b49;
+}
+
+.bg-light-custom {
+  background-color: #e6d8c8;
+  border-radius: 8px;
+}
+
+.table thead {
+  background-color: #0f1a3a !important;
+  color: white;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
+.footer {
+  background-color: #1a1b49;
+}
+
+button.btn-warning {
+  background-color: #f0ad4e;
+  border: none;
+}
+
+button.btn-danger {
+  background-color: #d9534f;
+  border: none;
+}
+
+button.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+}

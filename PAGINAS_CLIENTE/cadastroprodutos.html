@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  
+   <link rel="stylesheet" href="../css/style.css"/>
+  
+  </head>
+  <body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-darkblue sticky-top px-3">
+    <div class="d-flex align-items-center">
+      <!-- Botão Voltar -->
+      <a href="home.html" class="btn btn-link text-white me-3">
+        <img src="../IMG/de-volta (1).png"></img>
+      </a>
+      <!-- Logo + Título -->
+      <img src="../IMG/LogoAtivaS.png" alt="Logo" class="logo-small me-2">
+      <span class="navbar-brand mb-0 h4">Cadastro de Produtos</span>
+    </div>
+
+    <!-- Busca -->
+    <form class="d-flex mx-auto w-50">
+      <input class="form-control" type="search" placeholder="Buscar..." aria-label="Buscar">
+    </form>
+
+    <!-- Ícones -->
+    <div class="d-flex align-items-center gap-3">
+      <a href="carrinho.html" class="text-white fs-5"><img src="../IMG/carrinho-de-compras.png"></img></a>
+      <a href="chat.html" class="text-white fs-5"><img src="../IMG/ChatAtiva.png"></img></a>
+      <a href="perfil.html" class="text-white fs-5"><img src="../IMG/PerfilAtiva.png"></img></a>
+    </div>
+  </nav>
+
+  <!-- Conteúdo -->
+  <main class="container my-4">
+    <div class="d-flex justify-content-end mb-3">
+      <button class="btn btn-darkblue" data-bs-toggle="modal" data-bs-target="#novoProdutoModal">Novo Produto</button>
+    </div>
+
+    <!-- Formulário -->
+    <div class="p-4 rounded bg-form mb-4">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Nome do produto</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Preço de venda</label>
+          <input type="number" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Categoria</label>
+          <select class="form-select">
+            <option>Whey</option>
+            <option>Creatina</option>
+            <option>Pré-treino</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Preço Promocional</label>
+          <input type="number" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Descrição</label>
+          <textarea class="form-control"></textarea>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Estoque disponível</label>
+          <input type="number" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Status</label>
+          <select class="form-select">
+            <option>Ativo</option>
+            <option>Inativo</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Imagem do produto</label>
+          <input type="file" class="form-control">
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabela de Produtos -->
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead class="table-darkblue text-white">
+          <tr>
+            <th>Nome do produto</th>
+            <th>Categoria</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Whey Protein</td>
+            <td>Whey</td>
+            <td>R$ 110,00</td>
+            <td>46</td>
+            <td><span class="text-success fw-bold">Ativo</span></td>
+            <td>
+              <button class="btn btn-primary btn-sm">Editar</button>
+              <button class="btn btn-danger btn-sm">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="text-center text-white py-3 bg-darkblue mt-4">
+    <p class="mb-0">© 2025 Loja de Suplementos - Todos os direitos reservados</p>
+  </footer>
+
+  <!-- Modal Novo Produto -->
+  <div class="modal fade" id="novoProdutoModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content p-3">
+        <div class="modal-header">
+          <h5 class="modal-title">Adicionar Novo Produto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control mb-2" placeholder="Nome do Produto">
+          <input type="number" class="form-control mb-2" placeholder="Preço">
+          <textarea class="form-control mb-2" placeholder="Descrição"></textarea>
+          <input type="file" class="form-control mb-2">
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button class="btn btn-darkblue">Salvar Produto</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  
+    <link rel="stylesheet" href="../css/style.css"/>
+    
+</head>
+<body class="bg-darkblue text-white">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-darkblue sticky-top px-3">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand text-white fw-bold" href="index.html">
+        <img src="../IMG/LogoAtivaS.png" alt="Logo" style="height: 35px;">
+      </a>
+
+      <!-- Busca -->
+      <form class="d-flex mx-auto w-50" role="search">
+        <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
+      </form>
+
+      <!-- Ícones -->
+      <div class="d-flex align-items-center gap-3">
+        <a href="index.html" class="text-white fs-5"><i class="bi bi-house"></i></a>
+        <a href="carrinho.html" class="text-white fs-5"><img src="../IMG/carrinho-de-compras.png"></img></a>
+        <a href="chat.html" class="text-white fs-5"><img src="../IMG/ChatAtiva.png"></img></a>
+        <a href="perfil.html" class="text-white fs-5"><img src="../IMG/PerfilAtiva.png"></img></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Título -->
+  <div class="container text-center my-5">
+    <h3 class="fw-bold text-warning">CARRINHO DE COMPRAS</h3>
+  </div>
+
+  <!-- Carrinho -->
+  <div class="container my-5">
+    <div class="row g-3">
+
+      <!-- Lista de Produtos -->
+      <div class="col-lg-8">
+        <div class="p-3 bg-secondary rounded shadow">
+          <h5 class="fw-bold text-warning">MEU CARRINHO</h5>
+          <hr class="border-light">
+
+          <div id="cart-items">
+            <!-- Produto 1 -->
+            <div class="cart-item d-flex align-items-center justify-content-between p-2 rounded mb-2 bg-darkblue">
+              <div class="d-flex align-items-center">
+                <a href="detalhe.html" class="me-3 product-link">
+                  <img src="../IMG/ProdutoCreaMaxAtiva.png" alt="Produto 1" class="cart-img">
+                </a>
+                <div>
+                  <h6 class="mb-1">Creatina 300g MonoHidratada</h6>
+                  <p class="mb-0">R$ <span class="price">120.99</span></p>
+                </div>
+              </div>
+              <button class="btn btn-sm btn-close-white remove-item"><img src="../IMG/cancelar (2).png"></img></button>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="cart-item d-flex align-items-center justify-content-between p-2 rounded mb-2 bg-darkblue">
+              <div class="d-flex align-items-center">
+                <a href="detalhe.html" class="me-3 product-link">
+                  <img src="../IMG/ProdutoPreTreinoFren.png" alt="Produto 2" class="cart-img">
+                </a>
+                <div>
+                  <h6 class="mb-1">Frenzy 300g Limão</h6>
+                  <p class="mb-0">R$ <span class="price">139.99</span></p>
+                </div>
+              </div>
+              <button class="btn btn-sm btn-close-white remove-item"><img src="../IMG/cancelar (2).png"></img></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resumo -->
+      <div class="col-lg-4">
+        <div class="p-3 bg-secondary rounded shadow">
+          <h5 class="fw-bold text-warning">RESUMO DO CARRINHO</h5>
+          <hr class="border-light">
+
+          <div id="summary"></div>
+
+          <hr class="border-light">
+          <h5>Total: R$ <span id="cart-total">0.00</span></h5>
+
+          <a href="checkout.html" class="btn btn-warning w-100 fw-bold mt-3">CONTINUAR</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function updateSummary() {
+      let items = document.querySelectorAll("#cart-items .cart-item");
+      let summary = document.getElementById("summary");
+      let total = 0;
+      summary.innerHTML = "";
+
+      items.forEach(item => {
+        let name = item.querySelector("h6").innerText;
+        let price = parseFloat(item.querySelector(".price").innerText);
+        total += price;
+        summary.innerHTML += `<p>${name} - R$ ${price.toFixed(2)}</p>`;
+      });
+
+      document.getElementById("cart-total").innerText = total.toFixed(2);
+    }
+
+    document.addEventListener("click", function(e) {
+      if (e.target.closest(".remove-item")) {
+        e.target.closest(".cart-item").remove();
+        updateSummary();
+      }
+    });
+
+    window.onload = updateSummary;
+  </script>
+
+  </body>
+</html>
