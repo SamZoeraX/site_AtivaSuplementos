@@ -42,14 +42,14 @@
         </div>
         <div class="card-body">
 
-          <form action="" method="" class="row g-3">
+          <form action="../PHP/cadastro_categorias.php" method="post" class="row g-3">
             <div class="col-md-6">
               <label for="catNome" class="form-label">Nome da categoria</label>
               <input type="text" name="nomecategoria" class="form-control" id="catNome" placeholder="Ex.: Creatinas" />
             </div>
             <div class="col-md-6">
                <label for="pPreco" class="form-label">Desconto em toda categoria</label>
-              <input name="desconto" type="number" id="catDesconto" class="form-control" min="0" step="0.01" placeholder="0,00" />
+              <input name="desconto" type="number" id="atvDesconto" class="form-control" min="0" step="0.01" placeholder="0,00" />
             </div>
             <div class="col-12 d-flex gap-2">
               <button type="submit" class="btn btn-primary">Cadastrar</button>
@@ -80,7 +80,7 @@
         </div>
         <div class="card-body">
 
-          <form class="row g-3" action="" method="post" enctype="multipart/form-data">
+          <form class="row g-3" action="../PHP/cadastro_marcas.php" method="post" enctype="multipart/form-data">
             <div class="col-12 col-md-3 text-center">
               <div class="brand-thumb border rounded d-flex align-items-center justify-content-center overflow-hidden">
                 <img id="brandPreview" alt="Prévia da marca" class="img-fluid d-none" />
