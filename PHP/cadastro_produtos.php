@@ -32,6 +32,7 @@ try{
         redirecWith("../paginas_logista/cadastro_produtos_logista.html",
            ["erro"=> "Metodo inválido"]);
     }
+  
 
     //criar as variáveis
     $nome = $_POST["nome"];
@@ -39,17 +40,20 @@ try{
     $quantidade = (int)$_POST["quantidade"];
     $preco = (double)$_POST["preco"];
     $codigo = (int)$_POST["codigo"];
-    $marcas_idMarcas = 1;
+    $Marcas_idMarcas = 1;
     //criar as variáveis das imagens
 $img1   = readImageToBlob($_FILES["imgproduto1"] ?? null);
 $img2   = readImageToBlob($_FILES["imgproduto2"] ?? null);
 $img3   = readImageToBlob($_FILES["imgproduto3"] ?? null);
 
+
+
 //VALIDANDO OS CAMPOS
     $erros_validacao=[];
     // se qualquer campo for vazio
-    if($nome === "" || $descricao === "" || $quantidade === "" || $preco === ""
-    || $marcas_idMarcas = 0){
+    if($nome === "" || $descricao === "" ||
+     $quantidade <= 0 || $preco <= 0
+    || $Marcas_idMarcas <= 0){
         $erros_validacao[]="Preencha os campos obrigatórios";
     }
 // se houver erros, volta para a tela com a mensagem
@@ -68,53 +72,83 @@ $img3   = readImageToBlob($_FILES["imgproduto3"] ?? null);
 
     $stmProdutos = $pdo -> prepare($sqlProdutos);
 
-    $inserirProdutos=$stmProdutos->execute([
-
+    $inserirProdutos= $stmProdutos->execute([
+      ":nome" => $nome,
+      ":descricao" => $descricao,
+      ":quantidade" => $quantidade,
+      ":preco" => $preco,
+      ":codigo" => $codigo,
+      ":Marcas_idMarcas" => $Marcas_idMarcas,
     ]);
+    
+if ($inserirProdutos) {
+      $pdo -> rollBack();
+      redirecWith("../PAGINAS_LOGISTA/cadastro_produtos_logista.html",
+      ["Erro" => "Falha ao cadastrar produtos"]);
+    }
+    //CASO TENHA DADO CERTO, CAPTURE O ID DA IMAGEM CADASTRADA
+    $idproduto=(int)$pdo->lastInsertId();
+
+     //cadastro de imagens
+     $sqlImagens ="INSERT INTO Imagem_produtos(foto) VALUES
+   (:imagem1), 
+   (:imagem2), 
+   (:imagem3)"
+   //PREPARA O COMANDO SQL PARA SER EXECUTADO
+   $smtImagens=$pdo -> prepare($sqlImagens);
 
 
-
-
-    /* Inserir o produto no banco de dados */
-    $sql ="INSERT INTO produtos (nome, descricao, quantidade, preco, codigo,
-    marcas_idMarcas, img1, img2, img3)
-     Values (:nome, :descricao, :quantidade, :preco, :codigo,
-     :marcas_idMarcas, :img1, :img2, :img3)";
-     // executando o comando no banco de dados
-     $stmt = $pdo->prepare($sql);
-     $stmt->bindValue(":nome", $nome, PDO::PARAM_STR);
-     $stmt->bindValue(":descricao", $descricao, PDO::PARAM_STR);
-     $stmt->bindValue(":quantidade", $quantidade, PDO::PARAM_INT);
-     $stmt->bindValue(":preco", $preco);
-     $stmt->bindValue(":codigo", $codigo, PDO::PARAM_INT);
-     $stmt->bindValue(":marcas_idMarcas", $marcas_idMarcas, PDO::PARAM_INT);
-
-     if ($img1 === null) {
-      $stmt->bindValue(":img1", null, PDO::PARAM_NULL);
+ if ($img1 === null) {
+      $stmImagens->bindParam(':imagem1', $img1, PDO::PARAM_LOB);
     } else {
-      $stmt->bindValue(":img1", $img1, PDO::PARAM_LOB);
+      $stmImagens->bindValue(':imagem1', null PDO::PARAM_NULL);
     }
 
     if ($img2 === null) {
-      $stmt->bindValue(":img2", null, PDO::PARAM_NULL);
+      $stmImagens->bindParam(':imagem2', $img2, PDO::PARAM_LOB);
     } else {
-      $stmt->bindValue(":img2", $img2, PDO::PARAM_LOB);
+      $stmImagens->bindValue(':imagem2', null, PDO::PARAM_NULL);
     }
 
     if ($img3 === null) {
-      $stmt->bindValue(":img3", null, PDO::PARAM_NULL);
+      $stmImagens->bindParam(':imagem3', $img3, PDO::PARAM_LOB);
     } else {
-      $stmt->bindValue(":img3", $img3, PDO::PARAM_LOB);
+      $stmImagens->bindValue(':imagem3', null, PDO::PARAM_NULL);
     }
 
-     $inserir = $stmt->execute();
+     $inserirImagens = $stmImagens->execute();
+
+//VERIFICAR SE O INSERIR IMAGENS DEU ERRADO
+if ($inserirImagens) {
+      $pdo -> rollBack();
+      redirecWith("../PAGINAS_LOGISTA/cadastro_produtos_logista.html",
+      ["Erro" => "Falha ao cadastrar produtos"]);
+    }
+
+    //CASO TENHA DADO CERTO, CAPTURE O ID DA IMAGEM CADASTRADA
+    $idImg=(int)$pdo->lastInsertId();
+
+
+    //VINCULAR A IMAGEM COM O PRODUTO
+    $sqlVincularProdImg ="INSERT INTO Produtos_has_Imagens_produtos
+    (Produtos_idProdutos,Imagem_produtos_idImagem_produtos) VALUES
+    (:idpro,idimg)";
+
+    $stmVincularProdImg=$pdo -> prepare($sqlVincularProdImg);
+
+    $inserirVincularProdImg=$stmVincularProdImg->execute([
+      ":idpro"=> $idproduto,
+      ":idimg"=> $idImg,
+    ]);
+
+    
 
      /* Verificando se foi cadastrado no banco de dados */
-     if($inserir){
+     if($inserirVincularProdImg) {
+      $pdo->rollBack();
         redirecWith("../paginas_logista/cadastro_produtos_logista.html",
-        ["cadastro" => "ok"]) ;
-     }else{
-        redirecWith("../paginas_logista/c
+        ["Erro" => "Falha ao vinvular produto com a imagem."]) ;
+     }
 
 }catch(Exception $e){
  redirecWith("../paginas_logista/cadastro_produtos_logista.html",
