@@ -16,6 +16,64 @@ header("Location:  $url");
 // fecha o script
 exit;
 }
+// códigos de listagem de dados
+if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["listar"])) {
+
+   try{
+   // comando de listagem de dados
+   $sqllistar ="SELECT idCategoriaProduto AS id, nome FROM 
+   categorias_produtos ORDER BY nome";
+
+   // Prepara o comando para ser executado
+   $stmtlistar = $pdo->query($sqllistar);   
+   //executa e captura os dados retornados e guarda em $lista
+   $listar = $stmtlistar->fetchAll(PDO::FETCH_ASSOC);
+
+   // verificação de formatos
+    $formato = isset($_GET["format"]) ? strtolower($_GET["format"]) : "option";
+
+
+    if ($formato === "json") {
+      header("Content-Type: application/json; charset=utf-8");
+      echo json_encode(["ok" => true, "categorias" => $listar], JSON_UNESCAPED_UNICODE);
+      exit;
+    }
+
+
+   // RETORNO PADRÃO
+    header('Content-Type: text/html; charset=utf-8');
+    foreach ($listar as $lista) {
+      $id   = (int)$lista["id"];
+      $nome = htmlspecialchars($lista["nome"], ENT_QUOTES, "UTF-8");
+      echo "<option value=\"{$id}\">{$nome}</option>\n";
+    }
+    exit;
+
+
+
+   }catch (Throwable $e) {
+    // Em caso de erro na listagem
+    if (isset($_GET['format']) && strtolower($_GET['format']) === 'json') {
+      header('Content-Type: application/json; charset=utf-8', true, 500);
+      echo json_encode(['ok' => false, 'error' => 'Erro ao listar categorias',
+       'detail' => $e->getMessage()], JSON_UNESCAPED_UNICODE);
+    } else {
+      header('Content-Type: text/html; charset=utf-8', true, 500);
+      echo "<option disabled>Erro ao carregar categorias</option>";
+    }
+    exit;
+  }
+
+
+}
+
+
+
+
+
+
+
+
 
 // códigos de cadastro
 try{
@@ -62,7 +120,17 @@ try{
 }
 
 
-
-
+try {
+  $sql = "SELECT idCategoriaProduto, nome FROM categorias_produtos ORDER BY nome";
+  foreach ($pdo->query($sql) as $row) {
+    $id = (int)$row['idCategoriaProduto'];
+    $nome = htmlspecialchars($row['nome'], ENT_QUOTES, 'UTF-8');
+    echo "<option value=\"{$id}\">{$nome}</option>\n";
+  }
+} catch (Throwable $e) {
+  http_response_code(500);
+  // Pode retornar nada ou uma opção de erro (opcional):
+  // echo "<option disabled>Erro ao carregar</option>";
+}
 
 ?>
