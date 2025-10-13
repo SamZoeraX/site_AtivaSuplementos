@@ -107,46 +107,15 @@
                 <div class="col-12">
                   <label class="form-label">Marcas cadastradas</label>
                   <div class="table-responsive">
-                    <table class="table align-middle mb-0">
+                    <table class="table">
                       <thead>
                         <tr>
-                          <th style="width: 72px;">Logo</th>
+                          <th>Logo</th>
                           <th>Nome</th>
-                          <th class="text-end">Ações</th>
+                          <th style="text-align:right">Ações</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <div class="logo-sample rounded"></div>
-                          </td>
-                          <td>Max Titanium</td>
-                          <td class="text-end">
-                            <button class="btn btn-sm btn-outline-secondary">Editar</button>
-                            <button class="btn btn-sm btn-outline-danger">Excluir</button>
-                          </td>s
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="logo-sample rounded"></div>
-                          </td>
-                          <td>Probiotica</td>
-                          <td class="text-end">
-                            <button class="btn btn-sm btn-outline-secondary">Editar</button>
-                            <button class="btn btn-sm btn-outline-danger">Excluir</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="logo-sample rounded"></div>
-                          </td>
-                          <td>Black Skull</td>
-                          <td class="text-end">
-                            <button class="btn btn-sm btn-outline-secondary">Editar</button>
-                            <button class="btn btn-sm btn-outline-danger">Excluir</button>
-                          </td>
-                        </tr>
-                      </tbody>
+                      <tbody id="tabelaMarcas"></tbody>
                     </table>
                   </div>
                 </div>
@@ -230,14 +199,11 @@
 
 
             <div class="col-md-6">
-              <label name="categoriaproduto" for="pCategoria" class="form-label">Categoria</label>
-              <select id="pCategoria" class="form-select">
+              <label name="categoriaproduto" for="pCategoria"         
+             class="form-label">Categoria</label>
+              <select id="prodCat" class="form-select">
                 <option selected>Selecione...</option>
-                <option>Creatinas</option>
-                <option>Whey Protein</option>
-                <option>Pré Treino</option>
-                <option>Hiper Calórico</option>
-              </select>
+                </select>
             </div>
             <div class="col-md-6">
               <label for="pMarca" class="form-label">Marca</label>
