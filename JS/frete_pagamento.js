@@ -88,10 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-listarMarcas("#brandNome");
+listarPagamentos("#fpNome");
 listarcategorias("#pCategoria");
 listarcategorias("#prodCat");
-
-
-
-

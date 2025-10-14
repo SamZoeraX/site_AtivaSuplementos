@@ -22,44 +22,44 @@ try{
  // SE O METODO DE ENVIO FOR DIFERENTE DE POST
     if($_SERVER['REQUEST_METHOD'] != 'POST'){
         // VOLTAR À TELA DE CADASTRO E EXIBIR ERRO
-        redirecWith("../paginas/fretepagamento.html",
+        redirecWith("../paginas_logista/fretepagamento.html",
         ["erro"=> "Metodo inválido"]);
     }
     // variaveis
     $bairro = $_POST["bairro"];
     $valor = $_POST["valor"];
-    $cidade = $_POST["cidade"];
+    $trasportadora = $_POST["trasportadora"];
 
     //validação
     $erros_validacao=[];
     // se qualquer campo for vazio
-    if($bairro === "" || $valor === "" || $cidade === ""){
+    if($bairro === "" || $valor === "" || $trasportadora === ""){
         $erros_validacao[]="Preencha todos os campos";
     }
 
     /* Inserir o cliente no banco de dados */
 $sql ="INSERT INTO 
-Fretes (bairro, valor, cidade)
-VALUES (:bairro, :valor, :cidade)";
+Fretes (bairro, valor, trasportadora)
+VALUES (:bairro, :valor, :trasportadora)";
 // executamos o comando no banco de dados
 $inserir = $pdo->prepare($sql)->execute([
     ":bairro"=> $bairro,
     ":valor"=> $valor,
-    ":cidade"=> $cidade,
+    ":trasportadora"=> $trasportadora,
 ]);
 
 /* Verificando se foi cadastrado no banco de dados */
 if($inserir){
-    redirecWith("../paginas/fretepagamento.html",
+    redirecWith("../paginas_logista/fretepagamento.html",
     ["cadastro" => "ok"]) ;
 }else{
-    redirecWith("../paginas/fretepagamento.html",
+    redirecWith("../paginas_logista/fretepagamento.html",
      ["erro" => "Erro ao cadastrar no banco de dados"]);
 }
 
 
 }catch(\Exception $e){
-    redirecWith("../paginas/fretepagamento.html",
+    redirecWith("../paginas_logista/fretepagamento.html",
     ["erro" => "Erro no sistema: " . $e->getMessage()]);
 }
 
