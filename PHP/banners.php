@@ -20,48 +20,59 @@ function read_image_to_blob(?array $file): ?string {
 }
 
 /* -----------------------------
-   LISTAGEM DE CATEGORIAS (GET)
+   LISTAGEM DE BANNERS (GET)
 ----------------------------- */
 if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["listar"])) {
     try {
-        $sqllistar = "SELECT idCategoriaProduto AS id, nome FROM categorias_produtos ORDER BY nome";
+        $sqllistar = "
+            SELECT 
+                b.idBanners AS id,
+                b.imagem,
+                b.descricao,
+                b.data_validade,
+                b.link,
+                c.nome AS categoria
+            FROM Banners b
+            LEFT JOIN categorias_produtos c 
+                ON b.CategoriasProdutos_id = c.idCategoriaProduto
+            ORDER BY b.idBanners DESC
+        ";
+
         $stmtlistar = $pdo->query($sqllistar);
         $listar = $stmtlistar->fetchAll(PDO::FETCH_ASSOC);
 
-        $formato = isset($_GET["format"]) ? strtolower($_GET["format"]) : "option";
-
-        if ($formato === "json") {
-            header("Content-Type: application/json; charset=utf-8");
-            echo json_encode(["ok" => true, "categorias" => $listar], JSON_UNESCAPED_UNICODE);
-            exit;
+        // Converter imagem para base64
+        foreach ($listar as &$banner) {
+            $banner["imagem"] = $banner["imagem"]
+                ? "data:image/jpeg;base64," . base64_encode($banner["imagem"])
+                : null;
         }
+        unset($banner);
 
-        header('Content-Type: text/html; charset=utf-8');
-        foreach ($listar as $lista) {
-            $id = (int)$lista["id"];
-            $nome = htmlspecialchars($lista["nome"], ENT_QUOTES, "UTF-8");
-            echo "<option value=\"{$id}\">{$nome}</option>\n";
-        }
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode(["ok" => true, "banners" => $listar], JSON_UNESCAPED_UNICODE);
         exit;
 
     } catch (Throwable $e) {
-        if (isset($_GET['format']) && strtolower($_GET['format']) === 'json') {
-            header('Content-Type: application/json; charset=utf-8', true, 500);
-            echo json_encode(['ok' => false, 'error' => 'Erro ao listar categorias', 'detail' => $e->getMessage()], JSON_UNESCAPED_UNICODE);
-        } else {
-            header('Content-Type: text/html; charset=utf-8', true, 500);
-            echo "<option disabled>Erro ao carregar categorias</option>";
-        }
+        header("Content-Type: application/json; charset=utf-8", true, 500);
+        echo json_encode([
+            "ok" => false,
+            "error" => "Erro ao listar banners",
+            "detail" => $e->getMessage()
+        ], JSON_UNESCAPED_UNICODE);
         exit;
     }
 }
+return;
+
+
 
 /* -----------------------------
    CADASTRO DE BANNER (POST)
 ----------------------------- */
 try {
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-        redirecWith("../paginas_logista/promocoes_logista.html", ["erro" => "Método inválido"]);
+        redirecWith("../PAGINAS_LOGISTA/promocoes_logista.html", ["erro" => "Método inválido"]);
     }
 
     // Captura os dados do formulário

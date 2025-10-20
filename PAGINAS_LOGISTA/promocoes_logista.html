@@ -47,14 +47,14 @@
           <strong>Cadastrar/Atualizar banner</strong>
         </div>
         <div class="card-body">
-          <form class="row g-3" action="../PHP/banners.php" method="post" enctype="multipart/form-data"> 
+          <form class="row g-3" action="../PHP//banners.php" method="post" enctype="multipart/form-data"> 
             <div class="col-12 col-md-4">
-              <label class="form-label">Imagem do banner</label>
-              <div class="banner-thumb border rounded d-flex align-items-center justify-content-center">
-                <span class="text-muted">Prévia</span>
-              </div>
-              <input type="file" name="imagem" class="form-control mt-2" accept="image/*">
-            </div>
+  <label class="form-label">Imagem do banner</label>
+  <div id="bannerPreview" class="banner-thumb border rounded d-flex align-items-center justify-content-center" style="height: 200px;">
+    <span class="text-muted">Prévia</span>
+  </div>
+  <input type="file" name="imagem" class="form-control mt-2" accept="image/*" id="bannerInput">
+</div>
 
             <div class="col-12 col-md-8">
               <div class="row g-3">
@@ -99,17 +99,13 @@
                   <th class="text-end" style="width:170px;">Ações</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-              </tbody>
-              <tfoot>
-              </tfoot>
+              <tbody id="banners">
+                </tbody>
             </table>
           </div>
         </div>
       </div>
     </section>
-
     <!-- ===================== CUPONS ===================== -->
     <section class="mb-5" aria-labelledby="titulo-cupom">
       <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
@@ -161,34 +157,9 @@
                   <th class="text-end" style="width:170px;">Ações</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>ATIVA10</td>
-                  <td>10,00</td>
-                  <td>31/10/2025</td>
-                  <td>100</td>
-                  <td class="text-end">
-                    <div class="btn-group btn-group-sm">
-                      <a href="#" class="btn btn-outline-secondary " ="true">Editar</a>
-                      <a href="#" class="btn btn-outline-danger " ="true">Excluir</a>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>ATIVAFRETE</td>
-                  <td>15,00</td>
-                  <td>30/11/2025</td>
-                  <td>50</td>
-                  <td class="text-end">
-                    <div class="btn-group btn-group-sm">
-                      <a href="#" class="btn btn-outline-secondary " ="true">Editar</a>
-                      <a href="#" class="btn btn-outline-danger "="true">Excluir</a>
-                    </div>
-                  </td>
-                </tr>
+              <tbody id="cupom">
               </tbody>
               <tfoot>
-                <tr><td colspan="5" class="small text-muted">* Lista estática (HTML). Integração posterior.</td></tr>
               </tfoot>
             </table>
           </div>
@@ -380,6 +351,6 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <script src="../JS/banners.js"></script>
+  <script src="../JS/promocoes_logista.js"></script>
 </body>
 </html>
