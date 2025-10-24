@@ -63,7 +63,7 @@
 
             <div class="col-12 col-md-6">
               <label for="ativaLista" class="form-label">Categorias criadas</label>
-              <select id="pCategoria" class="form-select">
+              <select id="categlista" class="form-select">
                 <option selected>Selecione uma categoria...</option>
                 
               </select>
@@ -209,9 +209,7 @@
               <label for="pMarca" class="form-label">Marca</label>
               <select name="marcaproduto" id="pMarca" class="form-select">
                 <option selected>Selecione...</option>
-                <option>Max Titanium</option>
-                <option>Probiotica</option>
-                <option>Black Skull</option>
+                
               </select>
             </div>
 
@@ -250,61 +248,7 @@
                 <th scope="col" class="text-end" style="width:160px;">Ações</th>
               </tr>
             </thead>
-            <tbody>
-              <!-- EXEMPLOS ESTÁTICOS (substitua pelos seus dados quando integrar) -->
-              <tr>
-                <td>105</td>
-                <td>
-                  <div class="prod-thumb rounded border"></div>
-                </td>
-                <td>Creatina 300g</td>
-                <td>Max Titanium</td>
-                <td><span class="badge text-bg-light me-1">Creatinas</span><span
-                    class="badge text-bg-light">Creatina</span></td>
-                <td class="text-end">25</td>
-                <td class="text-end">R$ 199,90</td>
-                <td class="text-end">R$ 169,90</td>
-                <td>CRE-300g</td>
-                <td class="text-end">
-                  <a href="#" class="btn btn-sm btn-outline-secondary disabled" aria-disabled="true">Editar</a>
-                  <a href="#" class="btn btn-sm btn-outline-danger disabled" aria-disabled="true">Excluir</a>
-                </td>
-              </tr>
-              <tr>
-                <td>104</td>
-                <td>
-                  <div class="prod-thumb rounded border"></div>
-                </td>
-                <td>Whey Protein 1kg</td>
-                <td>Max Titanium</td>
-                <td><span class="badge text-bg-light">Whey Protein</span></td>
-                <td class="text-end">12</td>
-                <td class="text-end">R$ 129,00</td>
-                <td class="text-end">—</td>
-                <td>WHE-1KG</td>
-                <td class="text-end">
-                  <a href="#" class="btn btn-sm btn-outline-secondary disabled" aria-disabled="true">Editar</a>
-                  <a href="#" class="btn btn-sm btn-outline-danger disabled" aria-disabled="true">Excluir</a>
-                </td>
-              </tr>
-              <tr>
-                <td>103</td>
-                <td>
-                  <div class="prod-thumb rounded border"></div>
-                </td>
-                <td>Pré Treino 300g</td>
-                <td>Black Skull</td>
-                <td><span class="badge text-bg-light">Pré Treino</span></td>
-                <td class="text-end">80</td>
-                <td class="text-end">R$ 148,99</td>
-                <td class="text-end">—</td>
-                <td>PRE-300g</td>
-                <td class="text-end">
-                  <a href="#" class="btn btn-sm btn-outline-secondary disabled" aria-disabled="true">Editar</a>
-                  <a href="#" class="btn btn-sm btn-outline-danger disabled" aria-disabled="true">Excluir</a>
-                </td>
-              </tr>
-              <!-- /EXEMPLOS -->
+            <tbody id="Cupom">
             </tbody>
 
           </table>
