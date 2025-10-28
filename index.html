@@ -6,53 +6,172 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   
-    <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="/CSS/home_logista.css"/>
 
-</head>
-  <body>
-<!-- Menu Superior-->
-    <header class="header">
-        <div class="logo">
-            <img src="IMG/LogoAtivaS.png" alt="Logo Ativa Suplementos" />
-        </div>
-        <div class="search-box">
-            <input type="text" placeholder="Buscar...">
-        </div>
-        <div class="icons">
-            <img src="IMG/ChatAtiva.png" alt="Chat">
-            <img src="IMG/CarrinhoAtiva.png" alt="Carrinho">
-            <img src="IMG/PerfilAtiva.png" alt="Perfil">
-        </div>
-    </header>
+  </head>
+   <body class="bg-darkblue text-white">
 
-      <!-- Rodapé -->
-    <footer class="footer">
-        <!-- Area do rodapé que ficará os textos do lado esquerdo-->
-        <div class="footer-texto">
-            <p> Desenvolvido por Sammuel Lee de O. Moraes</p>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-darkblue sticky-top px-3">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand text-white fw-bold" href="index.html">
+        <img src="../IMG/LogoAtivaS.png" alt="Logo" style="height: 35px;">
+      </a>
+
+      <!-- Busca -->
+      <form class="d-flex mx-auto w-50" role="search">
+        <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
+      </form>
+
+      <!-- Ícones -->
+      <div class="d-flex align-items-center gap-3">
+        <a href="carrinho.html" class="text-white fs-5"><img src="../IMG/carrinho-de-compras.png"></a>
+        <a href="chat.html" class="text-white fs-5"><img src="../IMG/bubble-chat.png"></a>
+        <a href="perfil.html" class="text-white fs-5"><img src="../IMG/PerfilAtiva.png"></a>
+      </div>
+    </div>
+  </nav>
+
+ <!-- inicio do menu categorias ---------------------- -->
+    <div class="bg-darkblue-sub py-2 text-center">
+      <a href="#" class="mx-3 text-white fw-bold">CREATINAS</a>
+      <a href="#" class="mx-3 text-white fw-bold">WHEY PROTEIN</a>
+      <a href="#" class="mx-3 text-white fw-bold">PRÉ-TREINO</a>
+      <a href="#" class="mx-3 text-white fw-bold">HIPER CALÓRICOS</a>
+    </div>
+    <!-- fim do menu categorias ------------------------ -->
+
+   <!-- CARROSSEL DE BANNERS -->
+    <div id="carouselBanners" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-indicators" id="banners-indicators"></div>
+      <div class="carousel-inner" id="banners-home">
+        <!-- Itens serão inseridos via JS -->
+        <div class="carousel-item active">
+          <div class="p-3 text-muted">Carregando banners…</div>
         </div>
+      </div>
 
-        <!-- Area Direita com as redes sociais -->
-        <div class="footer-direito">
-            <p> Conheça Nossas Redes Sociais</p>
-            <div class="icons-sociais">
-                <a href="">
-                    <img src="IMG/instagramAtiva.png" alt="Instagram">
-                </a>
-                <a href="">
-                    <img src="IMG/linkedinAtiva.png" alt="Linkedin">
-                </a>
-                <a href="">
-                    <img src="IMG/whatsappAtiva.png" alt="Whatsapp">
-                </a>
+      <button class="carousel-control-prev" type="button"
+              data-bs-target="#carouselBanners" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
 
+      <button class="carousel-control-next" type="button"
+              data-bs-target="#carouselBanners" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+    </div>
+
+  <!-- Ofertas do Dia -->
+  <section class="container my-5">
+    <h5 class="fw-bold text-warning mb-3">Ofertas do dia</h5>
+    <div id="carouselOfertas" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Produto 1 -->
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-md-3">
+              <div class="card product-card text-center h-100">
+                <img src="../IMG/ProdutoCreaMaxAtiva.png" class="card-img-top p-3" alt="Produto 1">
+                <div class="card-body">
+                  <h6 class="card-title">Creatina 300g Max Titanium</h6>
+                  <p class="mb-1">R$ 79,99</p>
+                  <p class="small text-muted">Até 2x de R$39,00</p>
+                  <a href="detalhe.html" class="btn btn-darkblue">Ver Produto</a>
+                </div>
+              </div>
             </div>
 
+            <!-- Produto 2 -->
+            <div class="col-md-3">
+              <div class="card product-card text-center h-100">
+                <img src="../IMG/ProdutoPreTreinoFren.png" class="card-img-top p-3" alt="Produto 2">
+                <div class="card-body">
+                  <h6 class="card-title">Pré treino - Frenzy 300g</h6>
+                  <p class="mb-1">R$ 154,99</p>
+                  <p class="small text-muted">Até 3x de R$51,66</p>
+                  <a href="detalhe.html" class="btn btn-darkblue">Ver Produto</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
+        <!-- Produto 3 (exemplo) -->
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-3">
+              <div class="card product-card text-center h-100">
+                <img src="../IMG/ProdutoWheyMax.png" class="card-img-top p-3" alt="Produto 3">
+                <div class="card-body">
+                  <h6 class="card-title">Whey Protein Max Titanium 900g</h6>
+                  <p class="mb-1">R$ 199,90</p>
+                  <p class="small text-muted">Até 3x de R$66,63</p>
+                  <a href="detalhe.html" class="btn btn-darkblue">Ver Produto</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    </footer>
+      </div>
 
-    <h1></h1>
-  </body>
+      <!-- Controles -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselOfertas" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselOfertas" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Marcas -->
+  <section class="container my-5">
+    <h5 class="fw-bold text-warning mb-3">Marcas</h5>
+    <div class="marcas row text-center g-3">
+      <div class="col-6 col-md-3">
+        <a href="#" class="brand-logo">
+          <img src="../IMG/transferir probiotic.jpg" class="img-fluid p-2" alt="Marca 1">
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a href="#" class="brand-logo">
+          <img src="../IMG/transferir max.png" class="img-fluid p-2" alt="Marca 2">
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a href="#" class="brand-logo">
+          <img src="../IMG/transferir integrl.png" class="img-fluid p-2" alt="Marca 3">
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a href="#" class="brand-logo">
+          <img src="../IMG/transferir black.png" class="img-fluid p-2" alt="Marca 4">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+   <div class="bg-darkblue-sub py-2 text-center">
+  <footer class="bg-darkblue text-center py-4 mt-5">
+    <p class="mb-2">Conheça nossas Redes Sociais</p>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="#" class="social-icon"><i class="bi bi-facebook"></i><img src="../IMG/linkedinAtiva.png"></a>
+      <a href="#" class="social-icon"><i class="bi bi-instagram"></i><img src="../IMG/instagramAtiva.png"></a>
+      <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i><img src="../IMG/whatsappAtiva.png"></a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="JS/home_cliente.js"></script>
+
+</body>
 </html>

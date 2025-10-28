@@ -46,6 +46,8 @@
         <div class="card-body">
 
           <form action="../PHP/cadastro_categorias.php" method="post" class="row g-3">
+            <input type="hidden" name="acao" id="acao">
+            <input type="hidden" name="id" id="idPagamento">
             <div class="col-md-6">
               <label for="catNome" class="form-label">Nome da categoria</label>
               <input type="text" name="nomecategoria" class="form-control" id="catNome" placeholder="Ex.: Creatinas" />
@@ -82,6 +84,8 @@
         <div class="card-body">
 
           <form class="row g-3" action="../PHP/cadastro_marcas.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="acao" id="acao">
+            <input type="hidden" name="id" id="idPagamento">
             <div class="col-12 col-md-3 text-center">
               <div class="brand-thumb border rounded d-flex align-items-center justify-content-center overflow-hidden">
                 <img id="brandPreview" alt="Prévia da marca" class="img-fluid d-none" />
@@ -135,7 +139,8 @@
         </div>
         <div class="card-body">
           <form action="../PHP/cadastro_produtos.php" method="post" class="row g-3" enctype="multipart/form-data">
-
+            <input type="hidden" name="acao" id="acao">
+            <input type="hidden" name="id" id="idPagamento">
             <!-- Imagens (3) -->
             <div class="col-12">
               <label class="form-label">Imagens do produto (3)</label>
@@ -248,7 +253,7 @@
                 <th scope="col" class="text-end" style="width:160px;">Ações</th>
               </tr>
             </thead>
-            <tbody id="Cupom">
+            <tbody id="">
             </tbody>
 
           </table>
