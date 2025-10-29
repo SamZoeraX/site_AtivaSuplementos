@@ -65,6 +65,45 @@
       </button>
     </div>
 
+
+<!-- ====== FILTRO E LISTAGEM DE PRODUTOS POR CATEGORIA ====== -->
+      <!-- ====== CATEGORIAS (chips) + PRODUTOS ====== -->
+      <section class="container py-4">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <h2 class="h5 mb-0">Categorias</h2>
+          <label for="filtro-categoria"
+            class="visually-hidden">Categoria</label>
+        </div>
+
+        <!-- Chips horizontais -->
+        <div id="cats-chips" class="d-flex gap-2 overflow-auto pb-2">
+          <button type="button" class="btn btn-primary btn-sm rounded-pill px-3"
+            data-cat>
+            Todas as categorias
+          </button>
+        </div>
+
+        <!-- Select oculto (fallback/acessibilidade) -->
+        <select id="filtro-categoria" class="form-select d-none"
+          aria-hidden="true">
+          <option value>Todas as categorias</option>
+        </select>
+
+        <hr class="my-4" />
+
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <h2 class="h5 mb-0">Produtos</h2>
+        </div>
+
+        <div id="produtos-area">
+          <div id="produtos-status" class="text-muted">Carregando
+            produtos…</div>
+          <div id="produtos-grid"
+            class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-3"></div>
+        </div>
+      </section>
+    
+
   <!-- Ofertas do Dia -->
   <section class="container my-5">
     <h5 class="fw-bold text-warning mb-3">Ofertas do dia</h5>

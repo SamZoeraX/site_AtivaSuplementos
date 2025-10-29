@@ -299,14 +299,14 @@ function listarCupons(tbcupom) {
     // Monta a <tr> de cada cupom
     const row = c => `
       <tr>
-        <td>${c.id}</td>
+        <td>${c.idCupom}</td>
         <td>${esc(c.nome)}</td>
         <td>R$ ${parseFloat(c.valor).toFixed(2).replace('.', ',')}</td>
         <td>${dtbr(c.data_validade)}</td>
         <td>${c.quantidade}</td>
         <td class="text-end">
-          <button class="btn btn-sm btn-warning" data-id="${c.id}">Editar</button>
-          <button class="btn btn-sm btn-danger"  data-id="${c.id}">Excluir</button>
+          <button class="btn btn-sm btn-warning" data-id="${c.idCupom}">Editar</button>
+          <button class="btn btn-sm btn-danger"  data-id="${c.idCupom}">Excluir</button>
         </td>
       </tr>`;
 
