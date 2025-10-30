@@ -1,72 +1,66 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  
-  <link rel="stylesheet" href="/CSS/home_logista.css"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ativa Suplementos — Home</title>
 
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous">
+
+    <!-- Seu CSS (opcional) -->
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-   <body class="bg-darkblue text-white">
+  <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-darkblue sticky-top px-3">
-    <div class="container-fluid">
-      <!-- Logo -->
-      <a class="navbar-brand text-white fw-bold" href="index.html">
-        <img src="../IMG/LogoAtivaS.png" alt="Logo" style="height: 35px;">
-      </a>
-
-      <!-- Busca -->
-      <form class="d-flex mx-auto w-50" role="search">
-        <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
-      </form>
-
-      <!-- Ícones -->
-      <div class="d-flex align-items-center gap-3">
-        <a href="carrinho.html" class="text-white fs-5"><img src="../IMG/carrinho-de-compras.png"></a>
-        <a href="chat.html" class="text-white fs-5"><img src="../IMG/bubble-chat.png"></a>
-        <a href="perfil.html" class="text-white fs-5"><img src="../IMG/PerfilAtiva.png"></a>
+    <!-- HEADER (exemplo simples; mantenha o seu se preferir) -->
+    <header
+      class="header d-flex align-items-center justify-content-between p-3 border-bottom">
+      <div class="logo d-flex align-items-center gap-2">
+        <img src="IMG/LogoAtivaS.png" alt="Logo PetAmigo" height="40" />
+        <strong>Ativa Suplementos</strong>
       </div>
-    </div>
-  </nav>
+      <div class="search-box flex-grow-1 mx-3">
+        <input class="form-control" type="search" placeholder="Buscar..." />
+      </div>
+      <div class="icons d-flex align-items-center gap-3">
+        <img src="IMG/bubble-chat.png" alt="Chat" height="28" />
+        <img src="IMG/carrinho-de-compras.png" alt="Carrinho" height="28" />
+        <img src="IMG/perfil-de-usuario.png" alt="Perfil" height="28" />
+      </div>
+    </header>
 
- <!-- inicio do menu categorias ---------------------- -->
-    <div class="bg-darkblue-sub py-2 text-center">
-      <a href="#" class="mx-3 text-white fw-bold">CREATINAS</a>
-      <a href="#" class="mx-3 text-white fw-bold">WHEY PROTEIN</a>
-      <a href="#" class="mx-3 text-white fw-bold">PRÉ-TREINO</a>
-      <a href="#" class="mx-3 text-white fw-bold">HIPER CALÓRICOS</a>
-    </div>
-    <!-- fim do menu categorias ------------------------ -->
+    <main class="container py-4">
 
-   <!-- CARROSSEL DE BANNERS -->
-    <div id="carouselBanners" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <div class="carousel-indicators" id="banners-indicators"></div>
-      <div class="carousel-inner" id="banners-home">
-        <!-- Itens serão inseridos via JS -->
-        <div class="carousel-item active">
-          <div class="p-3 text-muted">Carregando banners…</div>
+      <!-- CARROSSEL DE BANNERS -->
+      <div id="carouselBanners" class="carousel slide carousel-fade"
+        data-bs-ride="carousel">
+        <div class="carousel-indicators" id="banners-indicators"></div>
+        <div class="carousel-inner" id="banners-home">
+          <!-- Itens serão inseridos via JS -->
+          <div class="carousel-item active">
+            <div class="p-3 text-muted">Carregando banners…</div>
+          </div>
         </div>
+
+        <button class="carousel-control-prev" type="button"
+          data-bs-target="#carouselBanners" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+
+        <button class="carousel-control-next" type="button"
+          data-bs-target="#carouselBanners" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Próximo</span>
+        </button>
       </div>
 
-      <button class="carousel-control-prev" type="button"
-              data-bs-target="#carouselBanners" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-      </button>
-
-      <button class="carousel-control-next" type="button"
-              data-bs-target="#carouselBanners" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Próximo</span>
-      </button>
-    </div>
-
-
-<!-- ====== FILTRO E LISTAGEM DE PRODUTOS POR CATEGORIA ====== -->
+      <!-- ====== FILTRO E LISTAGEM DE PRODUTOS POR CATEGORIA ====== -->
       <!-- ====== CATEGORIAS (chips) + PRODUTOS ====== -->
       <section class="container py-4">
         <div class="d-flex align-items-center justify-content-between mb-2">
@@ -77,10 +71,7 @@
 
         <!-- Chips horizontais -->
         <div id="cats-chips" class="d-flex gap-2 overflow-auto pb-2">
-          <button type="button" class="btn btn-primary btn-sm rounded-pill px-3"
-            data-cat>
-            Todas as categorias
-          </button>
+          <button ... data-cat="">Todas as categorias</button>
         </div>
 
         <!-- Select oculto (fallback/acessibilidade) -->
@@ -102,115 +93,31 @@
             class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-3"></div>
         </div>
       </section>
+
+    </main>
+
+    <footer class="footer border-top p-3 d-flex justify-content-between">
+      <small>Desenvolvido por Sammuel Lee de O. Moraes</small>
+      <div class="icons-sociais d-flex gap-3">
+        <a href="#"><img src="IMG/instagramAtiva.png" alt="Instagram"
+            height="20" /></a>
+        <a href="#"><img src="IMG/linkedinAtiva.png" alt="LinkedIn"
+            height="20" /></a>
+        <a href="#"><img src="IMG/whatsappAtiva.png" alt="Whatsapp"
+            height="20" /></a>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS (bundle) deve vir ANTES do seu JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+
     
 
-  <!-- Ofertas do Dia -->
-  <section class="container my-5">
-    <h5 class="fw-bold text-warning mb-3">Ofertas do dia</h5>
-    <div id="carouselOfertas" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
+    <!-- Seu JS -->
+    <script src="JS/home_cliente.js"></script>
 
-        <!-- Produto 1 -->
-        <div class="carousel-item active">
-          <div class="row justify-content-center">
-            <div class="col-md-3">
-              <div class="card product-card text-center h-100">
-                <img src="../IMG/ProdutoCreaMaxAtiva.png" class="card-img-top p-3" alt="Produto 1">
-                <div class="card-body">
-                  <h6 class="card-title">Creatina 300g Max Titanium</h6>
-                  <p class="mb-1">R$ 79,99</p>
-                  <p class="small text-muted">Até 2x de R$39,00</p>
-                  <a href="detalhe.html" class="btn btn-darkblue">Ver Produto</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Produto 2 -->
-            <div class="col-md-3">
-              <div class="card product-card text-center h-100">
-                <img src="../IMG/ProdutoPreTreinoFren.png" class="card-img-top p-3" alt="Produto 2">
-                <div class="card-body">
-                  <h6 class="card-title">Pré treino - Frenzy 300g</h6>
-                  <p class="mb-1">R$ 154,99</p>
-                  <p class="small text-muted">Até 3x de R$51,66</p>
-                  <a href="detalhe.html" class="btn btn-darkblue">Ver Produto</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Produto 3 (exemplo) -->
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-3">
-              <div class="card product-card text-center h-100">
-                <img src="../IMG/ProdutoWheyMax.png" class="card-img-top p-3" alt="Produto 3">
-                <div class="card-body">
-                  <h6 class="card-title">Whey Protein Max Titanium 900g</h6>
-                  <p class="mb-1">R$ 199,90</p>
-                  <p class="small text-muted">Até 3x de R$66,63</p>
-                  <a href="detalhe.html" class="btn btn-darkblue">Ver Produto</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Controles -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselOfertas" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselOfertas" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-    </div>
-  </section>
-
-  <!-- Marcas -->
-  <section class="container my-5">
-    <h5 class="fw-bold text-warning mb-3">Marcas</h5>
-    <div class="marcas row text-center g-3">
-      <div class="col-6 col-md-3">
-        <a href="#" class="brand-logo">
-          <img src="../IMG/transferir probiotic.jpg" class="img-fluid p-2" alt="Marca 1">
-        </a>
-      </div>
-      <div class="col-6 col-md-3">
-        <a href="#" class="brand-logo">
-          <img src="../IMG/transferir max.png" class="img-fluid p-2" alt="Marca 2">
-        </a>
-      </div>
-      <div class="col-6 col-md-3">
-        <a href="#" class="brand-logo">
-          <img src="../IMG/transferir integrl.png" class="img-fluid p-2" alt="Marca 3">
-        </a>
-      </div>
-      <div class="col-6 col-md-3">
-        <a href="#" class="brand-logo">
-          <img src="../IMG/transferir black.png" class="img-fluid p-2" alt="Marca 4">
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Rodapé -->
-   <div class="bg-darkblue-sub py-2 text-center">
-  <footer class="bg-darkblue text-center py-4 mt-5">
-    <p class="mb-2">Conheça nossas Redes Sociais</p>
-    <div class="d-flex justify-content-center gap-3">
-      <a href="#" class="social-icon"><i class="bi bi-facebook"></i><img src="../IMG/linkedinAtiva.png"></a>
-      <a href="#" class="social-icon"><i class="bi bi-instagram"></i><img src="../IMG/instagramAtiva.png"></a>
-      <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i><img src="../IMG/whatsappAtiva.png"></a>
-    </div>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="JS/home_cliente.js"></script>
-
-</body>
+  </body>
 </html>

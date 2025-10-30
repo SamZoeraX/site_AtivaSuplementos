@@ -125,9 +125,9 @@ try {
   foreach ($pdo->query($sql) as $row) {
     $id = (int)$row['idCategoriaProduto'];
     $nome = htmlspecialchars($row['nome'], ENT_QUOTES, 'UTF-8');
-    echo "<option value=\"{$id}\">{$nome}</option>\n";
+    echo "<option value=\"{$id}\">{$nome}</option>\n";   
   }
-} catch (Throwable $e) {
+} catch (Throwable $e) {  
   http_response_code(500);
   // Pode retornar nada ou uma opção de erro (opcional):
   // echo "<option disabled>Erro ao carregar</option>";

@@ -29,6 +29,74 @@ function readImageToBlob(?array $file): ?string {
   return $content === false ? null : $content;
 }
 
+// ===================== LISTAR POR CATEGORIA ===================== //
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['listar_por_categoria'])) {
+  // aceita idCategoria, idcategoria ou categoria_id
+  $catId = (int)($_GET['idCategoria'] ?? $_GET['idcategoria'] ?? $_GET['categoria_id'] ?? 0);
+  if ($catId <= 0) {
+    json_err('idCategoria inválido');
+  }
+
+  try {
+    // Filtra produtos pela categoria (relacionamento direto)
+    $sql = "SELECT
+              p.idProdutos,
+              p.nome,
+              p.descricao,
+              p.quantidade,
+              p.preco,
+              p.preco_promocional,
+              m.nome AS marca,
+              c.nome AS categoria,
+              (SELECT i.foto
+                 FROM Imagem_produtos i
+                 JOIN Produtos_has_Imagem_produtos pi 
+                   ON pi.Imagem_produtos_idImagem_produtos = i.idImagem_produtos
+                WHERE pi.Produtos_idProdutos = p.idProdutos
+                ORDER BY i.idImagem_produtos ASC
+                LIMIT 1) AS imagem,
+              (SELECT i.texto_alternativo
+                 FROM Imagem_produtos i
+                 JOIN Produtos_has_Imagem_produtos pi 
+                   ON pi.Imagem_produtos_idImagem_produtos = i.idImagem_produtos
+                WHERE pi.Produtos_idProdutos = p.idProdutos
+                ORDER BY i.idImagem_produtos ASC
+                LIMIT 1) AS texto_alternativo
+            FROM Produtos p
+            LEFT JOIN Marcas m 
+              ON m.idMarcas = p.Marcas_idMarcas
+            INNER JOIN Categorias_produtos c 
+              ON c.idCategoriaProduto = p.Categorias_produtos_idCategorias_produtos
+            WHERE p.Categorias_produtos_idCategorias_produtos = :catId
+            ORDER BY p.idProdutos DESC";
+
+    $st = $pdo->prepare($sql);
+    $st->bindValue(':catId', $catId, PDO::PARAM_INT);
+    $st->execute();
+    $rows = $st->fetchAll(PDO::FETCH_ASSOC);
+
+    $produtos = array_map(function($r) {
+      return [
+        'idProdutos'        => (int)$r['idProdutos'],
+        'nome'              => $r['nome'],
+        'descricao'         => $r['descricao'],
+        'quantidade'        => (int)$r['quantidade'],
+        'preco'             => (float)$r['preco'],
+        'preco_promocional' => isset($r['preco_promocional']) ? (float)$r['preco_promocional'] : null,
+        'marca'             => $r['marca'] ?? null,
+        'categoria'         => $r['categoria'] ?? null,
+        // Converte BLOB da imagem em base64
+        'imagem'            => $r['imagem'] ? base64_encode($r['imagem']) : null,
+        'texto_alternativo' => $r['texto_alternativo'] ?? null
+      ];
+    }, $rows);
+
+    json_ok(['count' => count($produtos), 'produtos' => $produtos]);
+  } catch (Throwable $e) {
+    json_err('Falha ao listar produtos por categoria: ' . $e->getMessage(), 500);
+  }
+}
+
 
 
 try {
