@@ -135,15 +135,18 @@ try {
   $pdo->beginTransaction();
 
   // INSERT na tabela Produtos (com parâmetros nomeados)
-  $sqlProdutos = "INSERT INTO Produtos
-    (nome, descricao, quantidade, preco,
-    codigo, Marcas_idMarcas)
-    VALUES
-    (:nome, :descricao, :quantidade, :preco, 
-    :codigo, :Marcas_idMarcas)";
-
+$sqlProdutos = "INSERT INTO Produtos
+  (nome, descricao, quantidade, preco,
+   codigo, Marcas_idMarcas, Categorias_produtos_idCategorias_produtos)
+  VALUES
+  (:nome, :descricao, :quantidade, :preco,
+   :codigo, :Marcas_idMarcas, :catego
+   
+   ria_id)";
   // Prepara o statement
   $stmProdutos = $pdo->prepare($sqlProdutos);
+
+  $categoria_id = (int)$_POST['categoria_id']; // ou o nome do campo correto do seu <select>
 
   // Executa o INSERT com os valores vindos do formulário
   $inserirProdutos = $stmProdutos->execute([
@@ -153,6 +156,7 @@ try {
     ":preco"  => $preco,
     ":codigo"  => $codigo,
     ":Marcas_idMarcas" => $marcas_idMarcas,
+    ':categoria_id' => $categoria_id
   ]);
 
   // Se falhou ao inserir o produto, desfaz transação e redireciona com erro

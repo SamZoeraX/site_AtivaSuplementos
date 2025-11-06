@@ -103,7 +103,7 @@ function listarMarcas(nometabelamarcas) {
 listarMarcas("#tabelaMarcas");   // <tbody id="tabelaMarcas">
 listamarcasselec("#pMarca");     // <select id="pMarca">
 listarcategorias("#categlista"); // <select id="categlista">
-listarcategorias("aProdutos");    // <select id="prodCat">
+listarcategorias("#produtocategoria");    // <select id="prodCat">
 
 
 (function categoriasCRUD(){
