@@ -120,32 +120,38 @@
           <strong>Cadastrar/Atualizar cupom</strong>
         </div>
         <div class="card-body">
-          <form class="row g-3" action="../PHP/cupom.php" method="post">
+         <form class="row g-3" action="../PHP/cupom.php" method="post">
             <input type="hidden" name="acao" id="acao">
             <input type="hidden" name="id" id="idPagamento">
+
             <div class="col-md-4">
               <label class="form-label">Nome do cupom</label>
-              <input type="text" class="form-control" maxlength="45" placeholder="PET10">
+              <input type="text" name="nome" class="form-control" maxlength="45" placeholder="PET10" required>
             </div>
+
             <div class="col-md-4">
               <label class="form-label">Valor (R$ ou %)</label>
-              <input type="number" class="form-control" step="0.01" placeholder="Ex.: 10,00">
+              <input type="number" name="valor" class="form-control" step="0.01" placeholder="Ex.: 10.00" required>
               <div class="form-text">* Interpretação do tipo no backend.</div>
             </div>
+
             <div class="col-md-4">
               <label class="form-label">Validade</label>
-              <input type="date" class="form-control">
+              <input type="date" name="data_validade" class="form-control" required>
             </div>
+
             <div class="col-md-4">
               <label class="form-label">Quantidade</label>
-              <input type="number" class="form-control" min="1" placeholder="50">
+              <input type="number" name="quantidade" class="form-control" min="1" placeholder="50" required>
             </div>
+
             <div class="col-12 d-flex gap-2">
-              <button type="submit" class="btn btn-primary" >Cadastrar</button>
-              <button type="submit" class="btn btn-outline-secondary" >Editar</button>
-              <button type="submit" class="btn btn-outline-danger" >Excluir</button>
+              <button type="submit" class="btn btn-primary">Cadastrar</button>
+              <button type="submit" class="btn btn-outline-secondary">Editar</button>
+              <button type="submit" class="btn btn-outline-danger">Excluir</button>
             </div>
           </form>
+
         </div>
 
         <!-- Lista de Cupons -->

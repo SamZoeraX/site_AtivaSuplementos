@@ -2,14 +2,21 @@
 async function listarcategorias(nomeid) {
   const sel = document.querySelector(nomeid);
   try {
+    // aqui pedimos o formato padrão HTML (<option> já vem pronto)
     const r = await fetch("../PHP/cadastro_categorias.php?listar=1");
     if (!r.ok) throw new Error("Falha ao listar categorias!");
-    sel.innerHTML = await r.text();
+
+    // o backend já retorna opções completas:
+    // <option value="1">Proteínas</option>
+    // <option value="2">Vitaminas</option>
+    sel.innerHTML = '<option value="">Selecione uma categoria</option>' + await r.text();
+
   } catch (e) {
     console.error(e);
-    sel.innerHTML = "<option disabled>Erro ao carregar</option>";
+    sel.innerHTML = '<option disabled>Erro ao carregar categorias</option>';
   }
 }
+
 
 
 // === LISTAR MARCAS (para selects) ===

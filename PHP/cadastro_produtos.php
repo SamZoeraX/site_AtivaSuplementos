@@ -111,8 +111,8 @@ try {
   $quantidade =  (int)$_POST["quantidade"] ;
   $preco  =  (double)$_POST["preco"];
   $codigo  =  (int)$_POST["codigo"] ;
-  $marcas_idMarcas = 1; // ID da marca (fixo aqui; poderia vir do formulário)
-
+  $categoria= (int)$_POST["produtocategoria"] ; // ID da marca (fixo aqui; poderia vir do formulário)
+$marcas= (int)$_POST["marcaproduto"] ;
   // VÁRIAVEIS DAS Imagens (cada input de arquivo vira um BLOB ou null)
   $img1 = readImageToBlob($_FILES["imgproduto1"] ?? null);
   $img2 = readImageToBlob($_FILES["imgproduto2"] ?? null);
@@ -122,7 +122,7 @@ try {
   // Validação básica dos campos obrigatórios
   $erros_validacao = [];
   if ($nome === "" || $descricao === "" || 
-  $quantidade <= 0 || $preco <= 0 || $marcas_idMarcas <= 0) {
+  $quantidade <= 0 || $preco <= 0 || $marcas <= 0) {
     $erros_validacao[] = "Preencha os campos obrigatórios.";
   }
 
@@ -140,14 +140,11 @@ $sqlProdutos = "INSERT INTO Produtos
    codigo, Marcas_idMarcas, Categorias_produtos_idCategorias_produtos)
   VALUES
   (:nome, :descricao, :quantidade, :preco,
-   :codigo, :Marcas_idMarcas, :catego
-   
-   ria_id)";
+   :codigo, :Marcas_idMarcas, :categoria_id)";
   // Prepara o statement
   $stmProdutos = $pdo->prepare($sqlProdutos);
 
-  $categoria_id = (int)$_POST['categoria_id']; // ou o nome do campo correto do seu <select>
-
+  
   // Executa o INSERT com os valores vindos do formulário
   $inserirProdutos = $stmProdutos->execute([
     ":nome" => $nome,
@@ -155,8 +152,8 @@ $sqlProdutos = "INSERT INTO Produtos
     ":quantidade"  => $quantidade,
     ":preco"  => $preco,
     ":codigo"  => $codigo,
-    ":Marcas_idMarcas" => $marcas_idMarcas,
-    ':categoria_id' => $categoria_id
+    ":Marcas_idMarcas" => $marcas,
+    ':categoria_id' => $categoria
   ]);
 
   // Se falhou ao inserir o produto, desfaz transação e redireciona com erro
@@ -170,7 +167,7 @@ $sqlProdutos = "INSERT INTO Produtos
   $idproduto = (int)$pdo->lastInsertId();
 
   // INSERT das imagens (uma linha por imagem)
-  $sqlImagens = "INSERT INTO Imagem_produtos (foto)
+  $sqlImagens = "INSERT INTO Imagens_produtos (foto)
    VALUES (:imagem1), (:imagem2), (:imagem3)";
   
   // PREPARA O COMANDO SQL PARA SER EXECUTADO
@@ -212,8 +209,8 @@ $sqlProdutos = "INSERT INTO Produtos
 
 
   // Vincula a(s) imagem(ns) ao produto na tabela de relacionamento
-  $sqlVincularProdImg = "INSERT INTO Produtos_has_Imagem_produtos
-    (Produtos_idProdutos, Imagem_produtos_idImagem_produtos)
+  $sqlVincularProdImg = "INSERT INTO Produtos_has_Imagens_produtos
+    (Produtos_idProdutos, Imagens_produtos_idImagens_produtos)
     VALUES
     (:idpro, :idimg)";
 
